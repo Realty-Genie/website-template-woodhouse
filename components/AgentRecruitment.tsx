@@ -32,7 +32,7 @@ const benefits = [
 
 export default function AgentRecruitment() {
     return (
-        <section id="agents" className="py-20 bg-background text-white">
+        <section id="agents" className="py-20 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left - Image */}
@@ -43,13 +43,13 @@ export default function AgentRecruitment() {
                             fill
                             className="object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/50" />
+                        <div className="absolute inset-0 bg-white/65" />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center p-8">
                                 <span className="text-primary text-sm font-medium tracking-[0.3em] uppercase block mb-4">
                                     Join Our Team
                                 </span>
-                                <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                                <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                                     Built for Ambitious Agents
                                 </h3>
                             </div>
@@ -62,11 +62,11 @@ export default function AgentRecruitment() {
                             <span className="text-primary text-sm font-medium tracking-[0.3em] uppercase opacity-90 block">
                                 For Agents
                             </span>
-                            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                                 Grow With Us
                             </h2>
-                            <p className="text-white/70 font-light leading-relaxed">
-                                At Woodhouse Realty, we support driven professionals with the tools, training, and culture needed to thrive in today's competitive market.
+                            <p className="text-muted-foreground font-light leading-relaxed">
+                                At Woodhouse Realty, we support driven professionals with the tools, training, and culture needed to thrive in today&apos;s competitive market.
                             </p>
                         </div>
 
@@ -75,16 +75,16 @@ export default function AgentRecruitment() {
                             {benefits.map((benefit, idx) => (
                                 <div 
                                     key={idx}
-                                    className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all duration-300"
+                                    className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300"
                                 >
                                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                                         {benefit.icon}
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-medium text-sm mb-1">
+                                        <h4 className="text-foreground font-medium text-sm mb-1">
                                             {benefit.title}
                                         </h4>
-                                        <p className="text-white/50 text-xs font-light">
+                                        <p className="text-muted-foreground text-xs font-light">
                                             {benefit.description}
                                         </p>
                                     </div>
@@ -92,7 +92,7 @@ export default function AgentRecruitment() {
                             ))}
                         </div>
 
-                        <Button className="bg-primary text-black hover:bg-white hover:text-black rounded-xl px-8 py-6 tracking-widest text-xs uppercase font-medium transition-all duration-300">
+                        <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl px-8 py-6 tracking-widest text-xs uppercase font-medium transition-all duration-300">
                             Explore Agent Opportunities
                             <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>

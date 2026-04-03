@@ -49,7 +49,7 @@ export default function FAQ() {
                     <span className="text-primary text-sm font-medium tracking-[0.3em] uppercase opacity-90 block">
                         Common Questions
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                         Frequently Asked Questions
                     </h2>
                 </div>
@@ -62,15 +62,15 @@ export default function FAQ() {
                             <div
                                 key={index}
                                 className={cn(
-                                    "border border-white/10 rounded-xl overflow-hidden transition-all duration-300",
-                                    isOpen ? "bg-white/5 border-primary/30" : "hover:border-primary/50"
+                                    "border border-border rounded-xl overflow-hidden transition-all duration-300",
+                                    isOpen ? "bg-card border-primary/30" : "hover:border-primary/50"
                                 )}
                             >
                                 <button
                                     onClick={() => setOpenIndex(isOpen ? null : index)}
                                     className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                                 >
-                                    <span className="text-lg md:text-xl font-serif font-medium text-white/90 pr-8">
+                                    <span className="text-lg md:text-xl font-serif font-medium text-foreground pr-8">
                                         {faq.question}
                                     </span>
                                     <span className="flex-shrink-0 text-primary">
@@ -86,7 +86,7 @@ export default function FAQ() {
                                             exit={{ height: 0, opacity: 0 }}
                                             transition={{ duration: 0.3, ease: "easeInOut" }}
                                         >
-                                            <div className="px-6 md:px-8 pb-6 md:pb-8 text-white/70 leading-relaxed font-light">
+                                            <div className="px-6 md:px-8 pb-6 md:pb-8 text-muted-foreground leading-relaxed font-light">
                                                 {faq.answer}
                                             </div>
                                         </motion.div>

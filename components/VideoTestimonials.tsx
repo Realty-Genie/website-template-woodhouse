@@ -33,14 +33,14 @@ export default function VideoTestimonials() {
     ]
 
     return (
-        <section className="py-20 bg-[#1A1A1A] text-white">
+        <section className="py-20 bg-muted text-foreground">
             <div className="container mx-auto px-6 md:px-12">
                 {/* Header */}
                 <div className="text-center mb-16 space-y-4">
                     <span className="text-primary text-sm font-medium tracking-[0.3em] uppercase opacity-90 block">
                         Watch Our Videos
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                         What Other Sellers Are Saying?
                     </h2>
                     <div className="w-20 h-[1px] bg-primary mx-auto mt-6 opacity-60" />
@@ -59,7 +59,7 @@ export default function VideoTestimonials() {
                                 className={`group flex flex-col gap-4 ${lgClass}`}
                             >
                                 {/* Video Container - Aspect Ratio 16/9 */}
-                                <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg group-hover:border-primary/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(197,160,89,0.1)] bg-black">
+                                <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-border shadow-lg group-hover:border-primary/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(197,160,89,0.1)] bg-black">
                                     <iframe
                                         src={video.embedUrl}
                                         title={video.title}
@@ -71,7 +71,7 @@ export default function VideoTestimonials() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-lg font-serif text-white/90 group-hover:text-primary transition-colors duration-300 leading-snug text-center">
+                                <h3 className="text-lg font-serif text-foreground group-hover:text-primary transition-colors duration-300 leading-snug text-center">
                                     {video.title}
                                 </h3>
                             </div>

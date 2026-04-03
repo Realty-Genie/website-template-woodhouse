@@ -38,7 +38,7 @@ export default function Achievement() {
                     <span className="inline-block text-primary text-sm font-medium tracking-[0.3em] uppercase opacity-90">
                         Why Choose Us
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                         The Woodhouse Advantage
                     </h2>
                     <div className="w-20 h-[1px] bg-primary mx-auto mt-6 opacity-60" />
@@ -49,14 +49,14 @@ export default function Achievement() {
                     {achievements.map((item, idx) => (
                         <div
                             key={idx}
-                            className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)] flex flex-col items-center gap-3 hover:-translate-y-1"
+                            className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-lg flex flex-col items-center gap-3 hover:-translate-y-1"
                         >
                             {/* Icon Container */}
                             <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform duration-500">
                                 {item.icon}
                             </div>
 
-                            <h3 className="text-base font-medium text-white group-hover:text-primary transition-colors duration-300">
+                            <h3 className="text-base font-medium text-foreground group-hover:text-primary transition-colors duration-300">
                                 {item.title}
                             </h3>
 

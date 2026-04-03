@@ -50,14 +50,14 @@ const staticReviews = [
 
 export default function Testimonials() {
     return (
-        <section id="testimonials" className="py-20 bg-background text-white">
+        <section id="testimonials" className="py-20 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12">
                 {/* Header */}
                 <div className="text-center mb-16 space-y-4">
                     <span className="text-primary text-sm font-medium tracking-[0.3em] uppercase opacity-90 block">
                         Client Stories
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                         Trusted by Buyers & Sellers Across BC
                     </h2>
                     <div className="w-20 h-[1px] bg-primary mx-auto mt-6 opacity-60" />
@@ -68,7 +68,7 @@ export default function Testimonials() {
                     {staticReviews.map((review) => (
                         <div
                             key={review.id}
-                            className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 flex flex-col h-full"
+                            className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 flex flex-col h-full"
                         >
                             <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export default function Testimonials() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="font-serif font-medium text-white text-sm">
+                                        <h4 className="font-serif font-medium text-foreground text-sm">
                                             {review.reviewerName}
                                         </h4>
                                         <div className="flex gap-1 mt-0.5">
@@ -100,12 +100,12 @@ export default function Testimonials() {
                             </div>
 
                             <div className="flex-1">
-                                <div className="text-white/70 font-light leading-relaxed text-sm">
-                                    "{review.comment}"
+                                <div className="text-muted-foreground font-light leading-relaxed text-sm">
+                                    &ldquo;{review.comment}&rdquo;
                                 </div>
                             </div>
 
-                            <div className="mt-4 pt-4 border-t border-white/5 text-xs text-white/40 uppercase tracking-widest">
+                            <div className="mt-4 pt-4 border-t border-border text-xs text-muted-foreground uppercase tracking-widest">
                                 {new Date(review.dateAdded).toLocaleDateString(undefined, {
                                     year: 'numeric',
                                     month: 'long',
@@ -118,7 +118,7 @@ export default function Testimonials() {
 
                 {/* CTA */}
                 <div className="mt-16 text-center flex justify-center">
-                    <Button className="border border-primary/50 text-white bg-primary/10 backdrop-blur-sm hover:bg-primary hover:text-black hover:border-primary rounded-xl px-8 py-6 tracking-widest text-xs uppercase font-medium transition-all duration-300">
+                    <Button className="border border-primary/30 text-foreground bg-primary/5 hover:bg-primary hover:text-primary-foreground hover:border-primary rounded-xl px-8 py-6 tracking-widest text-xs uppercase font-medium transition-all duration-300">
                         Ready to Make Your Move?
                     </Button>
                 </div>
