@@ -72,8 +72,12 @@ export function Navbar() {
             size="default"
             className="font-medium rounded-md"
             onClick={() => {
-              if (typeof window !== "undefined" && window.crmTracker) {
+              console.log("[CRM] Book a Call (desktop) clicked | crmTracker available:", !!window.crmTracker);
+              if (window.crmTracker) {
                 window.crmTracker.track("click", { element: "button", button_text: "Book a Call" });
+                console.log("[CRM] click tracked ✓");
+              } else {
+                console.warn("[CRM] click SKIPPED — window.crmTracker is undefined");
               }
             }}
           >
@@ -115,8 +119,12 @@ export function Navbar() {
             size="lg"
             className="w-full mt-4 font-medium"
             onClick={() => {
-              if (typeof window !== "undefined" && window.crmTracker) {
+              console.log("[CRM] Book a Call (mobile) clicked | crmTracker available:", !!window.crmTracker);
+              if (window.crmTracker) {
                 window.crmTracker.track("click", { element: "button", button_text: "Book a Call" });
+                console.log("[CRM] click tracked ✓");
+              } else {
+                console.warn("[CRM] click SKIPPED — window.crmTracker is undefined");
               }
             }}
           >

@@ -8,17 +8,21 @@ function RouteTrackerInner() {
   const mounted = useRef(false);
 
   useEffect(() => {
-    // tracker.js fires page_view on initial load — only track on subsequent navigations
     if (!mounted.current) {
       mounted.current = true;
+      console.log("[CRM] RouteTracker mounted — skipping initial page_view (tracker.js handles it). window.crmTracker:", window.crmTracker);
       return;
     }
-    if (typeof window !== "undefined" && window.crmTracker) {
-      const currentUrl =
-        window.location.origin +
-        pathname +
-        (searchParams.toString() ? `?${searchParams.toString()}` : "");
+    const currentUrl =
+      window.location.origin +
+      pathname +
+      (searchParams.toString() ? `?${searchParams.toString()}` : "");
+    console.log("[CRM] Route changed → page_view:", currentUrl, "| crmTracker available:", !!window.crmTracker);
+    if (window.crmTracker) {
       window.crmTracker.track("page_view", { url: currentUrl });
+      console.log("[CRM] page_view tracked ✓");
+    } else {
+      console.warn("[CRM] page_view SKIPPED — window.crmTracker is undefined");
     }
   }, [pathname, searchParams]);
 

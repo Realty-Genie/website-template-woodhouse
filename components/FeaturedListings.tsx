@@ -95,25 +95,37 @@ const listings = [
 ]
 
 function handleListingClick(item: typeof listings[0]) {
-    if (typeof window !== "undefined" && window.crmTracker) {
-        window.crmTracker.track("listing_view", {
-            property_address: item.address,
-            property_city: item.city,
-            property_price: item.price,
-            property_beds: item.bedrooms,
-            property_baths: item.bathrooms,
-        });
+    console.log("[CRM] Listing card clicked:", item.address, "| crmTracker available:", typeof window !== "undefined" && !!window.crmTracker);
+    if (typeof window !== "undefined") {
+        if (window.crmTracker) {
+            window.crmTracker.track("listing_view", {
+                property_address: item.address,
+                property_city: item.city,
+                property_price: item.price,
+                property_beds: item.bedrooms,
+                property_baths: item.bathrooms,
+            });
+            console.log("[CRM] listing_view tracked ✓");
+        } else {
+            console.warn("[CRM] listing_view SKIPPED — window.crmTracker is undefined");
+        }
     }
 }
 
 function handleBookConsult(e: React.MouseEvent, address: string) {
     e.stopPropagation();
-    if (typeof window !== "undefined" && window.crmTracker) {
-        window.crmTracker.track("click", {
-            element: "button",
-            button_text: "Book a Consult",
-            property_address: address,
-        });
+    console.log("[CRM] Book a Consult clicked:", address, "| crmTracker available:", typeof window !== "undefined" && !!window.crmTracker);
+    if (typeof window !== "undefined") {
+        if (window.crmTracker) {
+            window.crmTracker.track("click", {
+                element: "button",
+                button_text: "Book a Consult",
+                property_address: address,
+            });
+            console.log("[CRM] click tracked ✓");
+        } else {
+            console.warn("[CRM] click SKIPPED — window.crmTracker is undefined");
+        }
     }
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 }

@@ -64,6 +64,8 @@ export default function RootLayout({
           src="https://tracker-worker.green-feather-9c2c.workers.dev/tracker.js"
           data-key="daf5f4f9-d985-40a6-948a-3a2d656bcc4c"
           strategy="afterInteractive"
+          onLoad={() => console.log("[CRM] tracker.js loaded ✓ — window.crmTracker:", typeof window !== "undefined" ? window.crmTracker : "N/A")}
+          onError={(e) => console.error("[CRM] tracker.js FAILED to load", e)}
         />
         <RouteTracker />
         {children}
