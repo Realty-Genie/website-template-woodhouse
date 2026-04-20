@@ -64,8 +64,24 @@ export default function RootLayout({
           src="https://tracker-worker.green-feather-9c2c.workers.dev/tracker.js"
           data-key="daf5f4f9-d985-40a6-948a-3a2d656bcc4c"
           strategy="afterInteractive"
-          onLoad={() => console.log("[CRM] tracker.js loaded ✓ — window.crmTracker:", typeof window !== "undefined" ? window.crmTracker : "N/A")}
-          onError={(e) => console.error("[CRM] tracker.js FAILED to load", e)}
+        />
+        <Script
+          id="tracker-debug"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var el = document.querySelector('script[src*="tracker.js"]');
+                if (!el) { console.error("[CRM] tracker.js script tag not found in DOM"); return; }
+                el.addEventListener("load", function() {
+                  console.log("[CRM] tracker.js loaded ✓ — window.crmTracker:", window.crmTracker);
+                });
+                el.addEventListener("error", function(e) {
+                  console.error("[CRM] tracker.js FAILED to load — check Network tab", e);
+                });
+              })();
+            `,
+          }}
         />
         <RouteTracker />
         {children}
