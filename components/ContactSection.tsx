@@ -1,9 +1,34 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function ContactSection() {
+    const [formData, setFormData] = useState({ name: "", email: "", phone: "", city: "" });
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    }
+
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        if (typeof window !== "undefined" && window.crmTracker) {
+            if (formData.email) {
+                window.crmTracker.identify(
+                    formData.email.trim().toLowerCase(),
+                    formData.name,
+                    formData.phone,
+                    formData.city
+                );
+            }
+            window.crmTracker.track("form_submit", {
+                formId: "lets_connect",
+                emailCaptured: !!formData.email,
+            });
+        }
+    }
+
     return (
         <section id="contact" className="relative bg-background py-20 pb-40">
             <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -22,7 +47,7 @@ export default function ContactSection() {
                             </p>
                         </div>
 
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -31,6 +56,8 @@ export default function ContactSection() {
                                     <Input
                                         id="name"
                                         placeholder="John Doe"
+                                        value={formData.name}
+                                        onChange={handleChange}
                                         className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50"
                                     />
                                 </div>
@@ -42,6 +69,8 @@ export default function ContactSection() {
                                         id="email"
                                         type="email"
                                         placeholder="john@example.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50"
                                     />
                                 </div>
@@ -56,34 +85,29 @@ export default function ContactSection() {
                                         id="phone"
                                         type="tel"
                                         placeholder="(555) 123-4567"
+                                        value={formData.phone}
+                                        onChange={handleChange}
                                         className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="subject" className="text-xs uppercase tracking-widest text-muted-foreground">
-                                        Subject
+                                    <label htmlFor="city" className="text-xs uppercase tracking-widest text-muted-foreground">
+                                        City
                                     </label>
                                     <Input
-                                        id="subject"
-                                        placeholder="Buying or Selling"
+                                        id="city"
+                                        placeholder="Vancouver"
+                                        value={formData.city}
+                                        onChange={handleChange}
                                         className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-primary/50"
                                     />
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted-foreground">
-                                    Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    rows={4}
-                                    placeholder="Tell us about your real estate goals..."
-                                    className="flex w-full rounded-md border border-border bg-muted px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50"
-                                ></textarea>
-                            </div>
-
-                            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wide uppercase py-6 text-xs">
+                            <Button
+                                type="submit"
+                                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wide uppercase py-6 text-xs"
+                            >
                                 Book a Consultation Today
                             </Button>
                         </form>

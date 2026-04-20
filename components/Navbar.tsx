@@ -68,7 +68,15 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <Button size="default" className="font-medium rounded-md">
+          <Button
+            size="default"
+            className="font-medium rounded-md"
+            onClick={() => {
+              if (typeof window !== "undefined" && window.crmTracker) {
+                window.crmTracker.track("click", { element: "button", button_text: "Book a Call" });
+              }
+            }}
+          >
             <Phone className="w-4 h-4 mr-2" />
             Book a Call
           </Button>
@@ -103,7 +111,15 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <Button size="lg" className="w-full mt-4 font-medium">
+          <Button
+            size="lg"
+            className="w-full mt-4 font-medium"
+            onClick={() => {
+              if (typeof window !== "undefined" && window.crmTracker) {
+                window.crmTracker.track("click", { element: "button", button_text: "Book a Call" });
+              }
+            }}
+          >
             <Phone className="w-4 h-4 mr-2" />
             Book a Call
           </Button>

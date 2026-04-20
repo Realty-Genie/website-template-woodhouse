@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
@@ -88,9 +90,19 @@ const listings = [
         price: 2198000,
         bedrooms: 6,
         bathrooms: 4,
-        image: "/listing-1.jpeg" // Fallback as listing-8 is missing
+        image: "/listing-1.jpeg"
     }
 ]
+
+function handleBookConsult(address: string) {
+    if (typeof window !== "undefined" && window.crmTracker) {
+        window.crmTracker.track("click", {
+            element: "button",
+            button_text: "Book a Consult",
+            property_address: address,
+        });
+    }
+}
 
 export default function FeaturedListings() {
     return (
@@ -135,7 +147,7 @@ export default function FeaturedListings() {
                                 <p className="text-muted-foreground text-sm mt-1">
                                     {item.city}, {item.postalCode}
                                 </p>
-                                <div className="mt-auto grid grid-cols-2 gap-4 pt-4 border-t border-border/50 text-sm">
+                                <div className="mt-3 grid grid-cols-2 gap-4 pt-4 border-t border-border/50 text-sm">
                                     <div className="flex flex-col">
                                         <span className="text-muted-foreground text-xs uppercase font-medium">Beds</span>
                                         <span className="font-semibold text-foreground">{item.bedrooms}</span>
@@ -145,6 +157,14 @@ export default function FeaturedListings() {
                                         <span className="font-semibold text-foreground">{item.bathrooms}</span>
                                     </div>
                                 </div>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    className="mt-4 w-full border-primary text-primary hover:bg-primary hover:text-white text-xs font-medium"
+                                    onClick={() => handleBookConsult(item.address)}
+                                >
+                                    Book a Consult
+                                </Button>
                             </div>
                         </div>
                     ))}

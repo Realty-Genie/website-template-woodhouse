@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
+import RouteTracker from "@/components/RouteTracker";
 import "./globals.css";
 
 const inter = Inter({
@@ -26,7 +28,44 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} antialiased font-sans`}>
+      <body
+        className={`${inter.variable} ${poppins.variable} antialiased font-sans`}
+      >
+        <Script
+          id="tracker-click-filter"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener("click", function(e) {
+                var el = e.target;
+                var tag = (el.tagName || "").toUpperCase();
+                if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA" || tag === "OPTION") {
+                  e.stopPropagation();
+                  return;
+                }
+                if (el.closest && el.closest("form")) {
+                  var isSubmitBtn = false;
+                  var check = el;
+                  for (var i = 0; i < 5 && check && check !== document.body; i++) {
+                    var t = (check.tagName || "").toUpperCase();
+                    if ((t === "BUTTON" && check.type === "submit") || (t === "INPUT" && check.type === "submit")) {
+                      isSubmitBtn = true;
+                      break;
+                    }
+                    check = check.parentElement;
+                  }
+                  if (!isSubmitBtn) { e.stopPropagation(); }
+                }
+              }, true);
+            `,
+          }}
+        />
+        <Script
+          src="https://tracker-worker.green-feather-9c2c.workers.dev/tracker.js"
+          data-key="daf5f4f9-d985-40a6-948a-3a2d656bcc4c"
+          strategy="afterInteractive"
+        />
+        <RouteTracker />
         {children}
       </body>
     </html>
