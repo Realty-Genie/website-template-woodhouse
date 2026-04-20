@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MapPin } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
 
 const heroImages = ["/listing-1.jpeg", "/listing-2.jpeg", "/listing-3.jpeg"]
@@ -12,7 +12,7 @@ const stats = [
     { label: "Properties Sold", value: "500+" },
     { label: "Years Experience", value: "15+" },
     { label: "Client Satisfaction", value: "98%" },
-    { label: "BC Communities", value: "25+" },
+    { label: "Cities Served", value: "25+" },
 ]
 
 export function Hero() {
@@ -54,20 +54,13 @@ export function Hero() {
                 {/* Main Content */}
                 <div className="relative z-10 h-full flex flex-col justify-center container mx-auto px-6 md:px-12 pt-20">
                     <div className="max-w-2xl space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/20 text-white">
-                            <MapPin className="w-4 h-4" />
-                            <span className="text-sm font-medium">
-                                British Columbia's Trusted Brokerage
-                            </span>
-                        </div>
-
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-tight">
                             Modern Real Estate, <br />
                             <span className="text-white/90">Exceptional Results.</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-xl font-normal">
-                            Woodhouse Realty combines strategy, technology, and local market expertise to deliver seamless buying and selling experiences.
+                            We combine strategy, technology, and local market expertise to deliver seamless buying and selling experiences.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">

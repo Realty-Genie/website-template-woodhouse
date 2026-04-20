@@ -66,7 +66,7 @@ export default function AgentRecruitment() {
                                 Grow With Us
                             </h2>
                             <p className="text-muted-foreground font-light leading-relaxed">
-                                At Woodhouse Realty, we support driven professionals with the tools, training, and culture needed to thrive in today&apos;s competitive market.
+                                We support driven professionals with the tools, training, and culture needed to thrive in today&apos;s competitive market.
                             </p>
                         </div>
 

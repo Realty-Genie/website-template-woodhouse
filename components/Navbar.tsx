@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -40,20 +39,15 @@ export function Navbar() {
           className="flex items-center gap-3 group"
           aria-label="Go to homepage"
         >
-          <div className="relative w-10 h-10 rounded-full overflow-hidden border border-border bg-white shadow-sm transition-transform duration-300 group-hover:scale-105">
-            <Image
-              src="/logo_new.jpeg"
-              alt="Woodhouse Realty Logo"
-              fill
-              className="object-cover"
-            />
+          <div className="w-10 h-10 rounded-full border border-border bg-white shadow-sm transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+            <Building2 className="w-5 h-5 text-primary" />
           </div>
           <span
             className={`text-xl font-semibold tracking-tight transition-colors duration-300 ${
               scrolled ? "text-primary" : "text-white"
             }`}
           >
-            Woodhouse <span className="font-medium opacity-80">Realty</span>
+            Your Agency <span className="font-medium opacity-80">Name</span>
           </span>
         </a>
 

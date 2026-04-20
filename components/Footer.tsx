@@ -11,10 +11,10 @@ export default function Footer() {
                     {/* Column 1: Bio */}
                     <div className="space-y-6">
                         <h3 className="text-xl font-serif font-bold text-primary">
-                            Woodhouse Realty
+                            Your Agency Name
                         </h3>
                         <p className="text-muted-foreground text-sm leading-relaxed font-light">
-                            A modern real estate brokerage committed to delivering strategy, results, and exceptional client service across British Columbia.
+                            A modern real estate brokerage committed to delivering strategy, results, and exceptional client service across your region.
                         </p>
                     </div>
 
@@ -52,18 +52,18 @@ export default function Footer() {
                         </h3>
                         <div className="space-y-4 text-sm text-muted-foreground font-light">
                             <div>
-                                <strong className="block text-foreground font-medium mb-1">WOODHOUSE REALTY</strong>
+                                <strong className="block text-foreground font-medium mb-1">YOUR AGENCY NAME</strong>
                                 <p>Licensed Real Estate Brokerage</p>
                             </div>
-                            <p>Serving Vancouver, Surrey, Burnaby, Richmond, and BC</p>
+                            <p>Serving your city and surrounding communities</p>
                             <div className="space-y-1">
                                 <p>
                                     <span className="text-muted-foreground uppercase text-xs tracking-wider mr-2">Phone</span>
-                                    (604) 555-0100
+                                    (555) 000-0000
                                 </p>
                                 <p>
                                     <span className="text-muted-foreground uppercase text-xs tracking-wider mr-2">Email</span>
-                                    info@woodhouserealty.ca
+                                    info@youragency.com
                                 </p>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground font-light">
-                    <p>© 2025 Woodhouse Realty. All rights reserved.</p>
+                    <p>© 2025 Your Agency Name. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
                         <Link href="#" className="hover:text-foreground">Terms of Service</Link>

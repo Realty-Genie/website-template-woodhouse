@@ -20,7 +20,7 @@ const services = [
     },
     {
         title: "Luxury Property Representation",
-        description: "Premium marketing and dedicated service for high-value properties across BC.",
+        description: "Premium marketing and dedicated service for high-value properties across your market.",
         image: "/listing-2.jpeg"
     },
     {

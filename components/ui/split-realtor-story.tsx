@@ -7,7 +7,7 @@ import { ArrowRight, Building2 } from "lucide-react"
 import Image from "next/image"
 
 const texts = [
-    "Woodhouse Realty is a forward-thinking real estate brokerage committed to empowering clients and agents alike.",
+    "We are a forward-thinking real estate brokerage committed to empowering clients and agents alike.",
     "We combine local market expertise with modern technology and strategic marketing to deliver seamless buying and selling experiences.",
     "Whether you're purchasing your first home, upgrading your investment portfolio, or selling a luxury property — our team is built to guide you with confidence."
 ]
@@ -71,14 +71,14 @@ export function SplitRealtorStory() {
                     <div className="w-full aspect-video md:aspect-[4/3] lg:aspect-video rounded-xl overflow-hidden relative bg-muted shadow-sm border border-border">
                         <Image
                             src="/listing-5.jpeg"
-                            alt="Woodhouse Realty Team"
+                            alt="Our Realty Team"
                             fill
                             className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                         <div className="absolute bottom-6 left-6 right-6">
                             <p className="text-white text-sm md:text-base font-medium drop-shadow-sm">
-                                Trusted by thousands of clients across British Columbia
+                                Trusted by thousands of clients across your region
                             </p>
                         </div>
                     </div>

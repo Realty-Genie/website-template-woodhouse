@@ -1,12 +1,12 @@
 import Image from "next/image"
 
 const areas = [
-  { name: "Burnaby", image: "/burnaby.jpg" },
-  { name: "Vancouver", image: "/vancover.jpg" },
-  { name: "Coquitlam", image: "/coquitlum.png" },
-  { name: "Port Coquitlam", image: "/port.jpg" },
-  { name: "West Vancouver", image: "/west_vancover.jpg" },
-  { name: "North Vancouver", image: "/north_vancover.jpg" },
+  { name: "Downtown", image: "/burnaby.jpg" },
+  { name: "Midtown", image: "/vancover.jpg" },
+  { name: "Eastside", image: "/coquitlum.png" },
+  { name: "Westside", image: "/port.jpg" },
+  { name: "North District", image: "/west_vancover.jpg" },
+  { name: "South End", image: "/north_vancover.jpg" },
 ]
 
 export default function FeaturedAreas() {
