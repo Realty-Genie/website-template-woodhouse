@@ -94,7 +94,20 @@ const listings = [
     }
 ]
 
-function handleBookConsult(address: string) {
+function handleListingClick(item: typeof listings[0]) {
+    if (typeof window !== "undefined" && window.crmTracker) {
+        window.crmTracker.track("listing_view", {
+            property_address: item.address,
+            property_city: item.city,
+            property_price: item.price,
+            property_beds: item.bedrooms,
+            property_baths: item.bathrooms,
+        });
+    }
+}
+
+function handleBookConsult(e: React.MouseEvent, address: string) {
+    e.stopPropagation();
     if (typeof window !== "undefined" && window.crmTracker) {
         window.crmTracker.track("click", {
             element: "button",
@@ -102,6 +115,7 @@ function handleBookConsult(address: string) {
             property_address: address,
         });
     }
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 }
 
 export default function FeaturedListings() {
@@ -124,7 +138,11 @@ export default function FeaturedListings() {
                     {listings.map((item, idx) => (
                         <div
                             key={idx}
-                            className="group bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300 border border-border flex flex-col"
+                            role="button"
+                            tabIndex={0}
+                            className="group bg-white rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300 border border-border flex flex-col cursor-pointer"
+                            onClick={() => handleListingClick(item)}
+                            onKeyDown={(e) => e.key === "Enter" && handleListingClick(item)}
                         >
                             <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
                                 <Image
@@ -161,7 +179,7 @@ export default function FeaturedListings() {
                                     variant="outline"
                                     size="sm"
                                     className="mt-4 w-full border-primary text-primary hover:bg-primary hover:text-white text-xs font-medium"
-                                    onClick={() => handleBookConsult(item.address)}
+                                    onClick={(e) => handleBookConsult(e, item.address)}
                                 >
                                     Book a Consult
                                 </Button>
